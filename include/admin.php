@@ -137,7 +137,10 @@ $statement->close();
     function saveChangeCategory(){
         let id = document.getElementById('id_desc').value,
             newparent = document.getElementById('change-category').value;
-
+        if (id == newparent) {
+            alert('Не допустимая категория!');
+            return false;
+        }
         ajax("ajax/change.php?id="+id+"&newparent="+newparent);
 
         alert('Родительская категория изменена!');
